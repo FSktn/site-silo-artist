@@ -4,32 +4,45 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Galerij van Jimmy Dvate: indrukwekkende muurschilderingen met flora en fauna. Bekijk silo beschilderingen uit Australië met inheemse dieren en planten.">
-	<title>Galerij</title>
+	<meta name="keywords" content="galerij, muurschilderingen, Jimmy Dvate, flora, fauna, silo art, kunstwerken, portfolio">
+	<meta name="author" content="Jimmy Dvate">
+	<meta property="og:title" content="Galerij - Jimmy Dvate Muurschilderingen">
+	<meta property="og:description" content="Bekijk de galerij met indrukwekkende muurschilderingen van flora en fauna door Jimmy Dvate.">
+	<meta property="og:type" content="website">
+	<link rel="canonical" href="galerij.html">
+	<title>Galerij - Jimmy Dvate Muurschilderingen | Portfolio Flora & Fauna</title>
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="header">
+<header>
+<nav id="header" aria-label="Hoofdnavigatie">
 	<div>
-		<a href="index.html">OVER MIJ</a>
-		<a href="contact.html">CONTACT</a>
+		<a href="index.html" title="Terug naar homepage">OVER MIJ</a>
+		<a href="contact.html" title="Neem contact met mij op">CONTACT</a>
 	</div>
-</div>
+</nav>
+</header>
+<main>
+<article>
 <h1>Galerij</h1>
+<h2>Muurschilderingen Flora & Fauna</h2>
 <p style="text-align: center; margin: 20px 0;">Welkom in mijn galerij. Hier vindt u een selectie van mijn beste muurschilderingen.</p>
 
 <div class="gallery-container">
 	<div class="gallery-image-wrapper">
-		<img id="gallery-image" src="images/foto1.jpg" alt="Silo beschildering in Rochester door Jimmy Dvate"/>
+		<img id="gallery-image" src="images/foto1.jpg" alt="Silo beschildering in Rochester door Jimmy Dvate" width="800" height="600" loading="lazy"/>
 	</div>
 	<p id="gallery-caption" class="gallery-caption">Silo beschildering in Rochester</p>
 	
 	<div class="gallery-controls">
-		<button id="prev-btn" class="gallery-btn">← Vorige</button>
+		<button id="prev-btn" class="gallery-btn" aria-label="Vorige afbeelding">← Vorige</button>
 		<span id="gallery-counter" class="gallery-counter">1 / 4</span>
-		<button id="next-btn" class="gallery-btn">Volgende →</button>
+		<button id="next-btn" class="gallery-btn" aria-label="Volgende afbeelding">Volgende →</button>
 	</div>
 </div>
+</article>
+</main>
 
 <script>
 	const galleryItems = [
@@ -46,8 +59,10 @@
 	const counter = document.getElementById('gallery-counter');
 	
 	function updateGallery() {
-		image.src = galleryItems[currentIndex].src;
-		caption.textContent = galleryItems[currentIndex].caption;
+		const currentItem = galleryItems[currentIndex];
+		image.src = currentItem.src;
+		image.alt = currentItem.caption + ' - Muurschildering door Jimmy Dvate';
+		caption.textContent = currentItem.caption;
 		counter.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
 	}
 	
