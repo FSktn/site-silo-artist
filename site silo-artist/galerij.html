@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Galerij</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="header">
+	<div>
+		<a href="index.html">OVER MIJ</a>
+		<a href="contact.html">CONTACT</a>
+	</div>
+</div>
+<h2>Galerij</h2>
+
+<div class="gallery-container">
+	<div class="gallery-image-wrapper">
+		<img id="gallery-image" src="images/foto1.jpg" alt="Gallery Image"/>
+	</div>
+	<p id="gallery-caption" class="gallery-caption">Silo beschildering in Rochester</p>
+	
+	<div class="gallery-controls">
+		<button id="prev-btn" class="gallery-btn">← Vorige</button>
+		<span id="gallery-counter" class="gallery-counter">1 / 4</span>
+		<button id="next-btn" class="gallery-btn">Volgende →</button>
+	</div>
+</div>
+
+<script>
+	const galleryItems = [
+		{ src: 'images/foto1.jpg', caption: 'Silo beschildering in Rochester' },
+		{ src: 'images/foto2.jpg', caption: 'Silo met vogelbekdier' },
+		{ src: 'images/foto3.jpg', caption: 'Landschap met witte reiger' },
+		{ src: 'images/foto4.jpg', caption: 'Waikerie bij de Murray River' }
+	];
+	
+	let currentIndex = 0;
+	
+	const image = document.getElementById('gallery-image');
+	const caption = document.getElementById('gallery-caption');
+	const counter = document.getElementById('gallery-counter');
+	
+	function updateGallery() {
+		image.src = galleryItems[currentIndex].src;
+		caption.textContent = galleryItems[currentIndex].caption;
+		counter.textContent = `${currentIndex + 1} / ${galleryItems.length}`;
+	}
+	
+	document.getElementById('prev-btn').addEventListener('click', function() {
+		currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+		updateGallery();
+	});
+	
+	document.getElementById('next-btn').addEventListener('click', function() {
+		currentIndex = (currentIndex + 1) % galleryItems.length;
+		updateGallery();
+	});
+</script>
+</body>
+</html>

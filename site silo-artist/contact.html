@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="header">
+	<div>
+		<a href="index.html">OVER MIJ</a>
+		<a href="galerij.html">GALERIJ</a>
+	</div>
+</div>
+	<h2>Contact</h2>
+    <form id="contact-form">
+      <div>
+        <label for="naam">Naam:
+          <input type="text" name="naam" id="naam" required />
+        </label>
+      </div>
+      <div>
+        <label for="email">E-mail:
+          <input type="email" name="email" id="email" required />
+        </label>
+      </div>
+      <div>
+        <label for="bericht">Uw bericht:</label>
+        <br />
+        <textarea name="bericht" id="bericht" rows="12" cols="35" required>Stuur uw reactie.</textarea>
+      </div>
+      <div>
+        <input type="submit" name="submit" value="Verzenden" />
+        <input type="reset" name="reset" value="Formulier leegmaken" />
+      </div>
+    </form>
+
+<script>
+	document.getElementById('contact-form').addEventListener('submit', function(e) {
+		e.preventDefault();
+		alert('Bedankt voor uw bericht!');
+		this.reset();
+	});
+</script>
+</body>
+</html>
